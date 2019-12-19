@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Mondesk Authentication</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.min.css" integrity="sha256-D9M5yrVDqFlla7nlELDaYZIpXfFWDytQtiV+TaH6F1I=" crossorigin="anonymous" />
+    </head>
+
+    <body style="text-align: center; padding: 20%; padding-top: 20px;">
+        <h1 class="title is-1">Mondesk Authentication</h1>
+        <p>Due to Monzo's OAuth2 system, we need to jump through a few hoops to continue. Never fear, this tool automates a lot of it for you!</p>
+        <hr>
+        <p>
+            To continue, you will want to sign into the <a href="https://developers.monzo.com/">Monzo developer portal</a> in another tab.
+            From here, click <code>Clients</code> at the top and then <code>New OAuth Client</code>. Then you will want to change <code>Confidentiality</code>
+            to <code>Confidential</code> and set the redirect URL as <b>EXACTLY</b> <code>https://mondesk-auth.jakegealer.me/</code>. The name can be anything.
+            On the next screen you will be given a client ID/secret, please enter them below and click <code>Continue</code>:
+        </p>
+        <div style="padding-left: 20%; padding-right: 20%;">
+            <br>
+            <label><b>Client ID:</b></label>
+            <br><br>
+            <input class="input" type="password" placeholder="Client ID" id="client_id">
+            <br><br>
+            <label><b>Client Secret:</b></label>
+            <br><br>
+            <input class="input" type="password" placeholder="Client Secret" id="client_secret">
+            <br><br>
+        </div>
+        <p>
+            <a class="button" href="javascript:handleContinue()">Continue</a>
+        </p>
+        <script src="./handler.js"></script>
+    </body>
+</html>
