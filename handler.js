@@ -26,8 +26,8 @@ if (params.get("code") && params.get("state")) {
     xhr.onload = function() {
         if (xhr.status === 200) {
             const json = JSON.parse(xhr.responseText);
-            copyToClipboard(json.access_token);
             document.body.innerHTML = "<h1 class=\"title is-1\">API Token</h1>\n<p>Your API token has been copied to your clipboard. Make sure to accept the notification on your phone!</p>";
+            copyToClipboard(json.access_token);
             localStorage.removeItem("clientId");
             localStorage.removeItem("clientSecret");
             localStorage.removeItem("state");
