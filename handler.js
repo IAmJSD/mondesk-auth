@@ -1,13 +1,3 @@
-// This function is used to copy to the clipboard.
-function copyToClipboard(str) {
-    const el = document.createElement("textarea");
-    el.value = str;
-    document.body.appendChild(el);
-    el.select();
-    document.execCommand("copy");
-    document.body.removeChild(el);
-}
-
 // Detect any URL params and handle them.
 var params = new URLSearchParams(window.location.search);
 if (params.get("code") && params.get("state")) {
@@ -26,8 +16,7 @@ if (params.get("code") && params.get("state")) {
     xhr.onload = function() {
         if (xhr.status === 200) {
             const json = JSON.parse(xhr.responseText);
-            document.body.innerHTML = "<h1 class=\"title is-1\">API Token</h1>\n<p>Your API token has been copied to your clipboard. Make sure to accept the notification on your phone!</p>";
-            copyToClipboard(json.access_token);
+            document.body.innerHTML = "<h1 class=\"title is-1\">API Token</h1>\n<p>Your API token is below Make sure to accept the notification on your phone before using!</p><code>\n" + json.access_token + "\n</code>";
             localStorage.removeItem("clientId");
             localStorage.removeItem("clientSecret");
             localStorage.removeItem("state");
