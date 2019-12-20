@@ -16,7 +16,7 @@ if (params.get("code") && params.get("state")) {
     xhr.onload = function() {
         if (xhr.status === 200) {
             const json = JSON.parse(xhr.responseText);
-            document.body.innerHTML = "<h1 class=\"title is-1\">API Token</h1>\n<p>Your API token is below Make sure to accept the notification on your phone before using!</p><code>\n" + json.access_token + "\n</code>";
+            document.body.innerHTML = "<h1 class=\"title is-1\">API Token</h1>\n<p>Your API token is below. Make sure to accept the notification on your phone before using!</p><br><code style=\"word-wrap: break-word;\">\n" + json.access_token + "\n</code>";
             localStorage.removeItem("clientId");
             localStorage.removeItem("clientSecret");
             localStorage.removeItem("state");
